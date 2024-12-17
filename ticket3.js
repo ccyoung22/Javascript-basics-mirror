@@ -1,39 +1,47 @@
-/* --- MVP 1 --- */
+// // Develop a JavaScript function applyDiscount
+//  that calculates the final price after applying a 10 % discount on single purchases over £20.
+//  This function should help increase the average purchase value by offering an immediate incentive.
 
-//Develop a JavaScript function applyDiscount 
-// that calculates the final price after applying a 10% discount on single purchases over £20. 
-//This function should help increase the average purchase value by offering an immediate incentive.
+console.log("hello world");
 
-/* --- Customer Change --- */
-//BookNook need to make more money, so the discounts function needs to change. 
-// applyDiscount should now only apply the discount to the overspend above £20
-
-function applyDiscount (price) {
-    if (price > 20) {
-        discount = ((price -20)/ 100) * 10; // price minus 20 to account for the new overspend criteria
-        newPrice = price - discount;
-        return newPrice;
-    }
-    else {
-        return price;
-    }
+function applyDiscount(originalPrice) {
+  if (originalPrice > 20) {
+    return originalPrice * (1 - 0.1);
+  } else {
+    return "Only purchases over £20 are eligable for a discount";
+  }
 }
 
-/* --- MVP 2 --- */
+//Create a function called calculateLoyaltyPoints
+function calculateLoyaltyPoints(purchasePrice, discount) {
+  let customerSpend = purchasePrice;
 
-// Create a function calculateLoyaltyPoints 
-// that awards points based on the purchase amount, 
-// where every dollar spent earns 1 point if no discount is applied. 
-// This function aims to build a foundation for a future loyalty program.
-
-// Setting a global variable to store loyalty points
-loyaltyPoints = 0;
-
-function calculateLoyaltyPoints (price) {
-    if (price <= 20) {
-        loyaltyPoints += Math.floor(price); // rounding down to add a point for every full dollar spent
-        return loyaltyPoints;
-    } 
+  if (discount === false) {
+    let loyaltyPoints = customerSpend;
     return loyaltyPoints;
+  } else if (discount === true) {
+    return "Discounted items are not eligable for loyalty points";
+  }
 }
 
+//that takes in the purchase amount
+//and returns 1 loyalty point for every dollar spent
+//that checks to see that no discount was applied
+
+function newApplyDiscount(amountSpent) {
+  if (amountSpent > 20) {
+    let overSpend = amountSpent - 20;
+    let finalPrice = overSpend * (1 - 0.1) + 20;
+    return finalPrice;
+  } else {
+    return "Only purchases over £20 are eligable for a discount";
+  }
+}
+
+//Create a function called new Appply Discount ✅
+//Take in the amount spent ✅
+//create an if statement for spend over £20
+//Work out the overspend after 20
+//declare a variable for overspend (amountspent - 20)
+//discount the overspend by 10%
+//declare final price that add 20 back to the overspend back onto
